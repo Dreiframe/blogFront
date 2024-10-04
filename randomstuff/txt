@@ -1,0 +1,4 @@
+npm create vite@latest part1 -- --template typescript
+
+npm install --save-dev @types/react
+npm install --save-dev @types/axios
