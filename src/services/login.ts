@@ -17,4 +17,5 @@ const login = async (credentials: loginType) => {
     return request.data
 }
 
+
 export default { login }

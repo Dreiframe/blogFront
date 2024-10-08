@@ -1,6 +1,7 @@
 import axios from 'axios'
 
 const baseUrl = '/api/blogs'
+let token: string|null = null
 
 export interface UserType {
     name: string,
@@ -17,6 +18,10 @@ export interface BlogType {
 }
   
 
+const setToken = (newToken: string )=> {
+    token = `Bearer ${newToken}`
+}
+
 const getAll = () => {
     const request = axios.get<UserType[]>(baseUrl)
     return request.then(response => {
@@ -24,16 +29,18 @@ const getAll = () => {
     })
 }
 
-const deleteBlogById = (id: number) => {
-    return axios.delete(`${baseUrl}/${id}`, {
+const deleteBlogById = async (id: number) => {
+    const response = await axios.delete(`${baseUrl}/${id}`, {
         headers: {
-            'Authorization': 'Bearer fefege...'
+            'Authorization': token
           }
     })
+
+    return response.data
 }
 
 export default { 
-    getAll, deleteBlogById,
+    getAll, deleteBlogById, setToken
 }
 
 /*

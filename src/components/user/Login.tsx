@@ -1,5 +1,6 @@
 import { useState, useEffect } from "react"
 import loginService from '../../services/login'
+import blogService from '../../services/blog'
 
 
 export const Login = () => {
@@ -13,13 +14,16 @@ export const Login = () => {
 
     const [ localUser, setLocalUser ] = useState<userType | null>(null)
 
+    //On page load/reload check if user auth is already stored locally
+    //Token will expire at somepoint with unclarity to frontend and user..
     useEffect(() => {
         const blogUserString = window.localStorage.getItem('blogUser')
         if(blogUserString){
             const blogUserJson: userType = JSON.parse(blogUserString)
+            blogService.setToken(blogUserJson.token)
             setLocalUser(blogUserJson)
         }
-      }, [])
+    }, [])
 
     const handleLogin = (event: React.SyntheticEvent<HTMLFormElement>) => {
         event.preventDefault()
@@ -30,7 +34,9 @@ export const Login = () => {
             })
             .then(res => {
                 window.localStorage.setItem('blogUser', JSON.stringify(res))
+                blogService.setToken(res.token)
                 setLocalUser(res)
+                console.log('TESTING1: ', res.token)
             })
             .catch(err => {
                 console.log(err.response.data)
