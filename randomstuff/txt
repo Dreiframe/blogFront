@@ -2,3 +2,6 @@ npm create vite@latest part1 -- --template typescript
 
 npm install --save-dev @types/react
 npm install --save-dev @types/axios
+
+
+npm i //to install dependecies after download/cloning repository
