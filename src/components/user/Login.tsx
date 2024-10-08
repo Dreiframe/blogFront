@@ -1,10 +1,6 @@
 import { useState, useEffect } from "react"
-import axios from "axios"
+import loginService from '../../services/login'
 
-interface responseType {
-    token: string,
-    name: string
-}
 
 export const Login = () => {
     const [username, setUsername] = useState('test_user_rest')
@@ -15,33 +11,43 @@ export const Login = () => {
         token: string
     }
 
-    const [ localUser, setLocalUser ] = useState<userType>({name: 'none', token: 'none'})
+    const [ localUser, setLocalUser ] = useState<userType | null>(null)
 
     useEffect(() => {
-        const blogUserString = window.localStorage.getItem('blogUser') || 'none'
-        const blogUserJson: userType = JSON.parse(blogUserString)
-        setLocalUser(blogUserJson)
+        const blogUserString = window.localStorage.getItem('blogUser')
+        if(blogUserString){
+            const blogUserJson: userType = JSON.parse(blogUserString)
+            setLocalUser(blogUserJson)
+        }
       }, [])
 
     const handleLogin = (event: React.SyntheticEvent<HTMLFormElement>) => {
         event.preventDefault()
-        axios.post<responseType>('http://localhost:3003/api/users/login', {
-            name: username,
-            password: password
-        })
+        loginService
+            .login({
+                name: username,
+                password: password
+            })
             .then(res => {
-                //setWebToken(res.data.token)
-                window.localStorage.setItem('blogUser', JSON.stringify(res.data))
+                window.localStorage.setItem('blogUser', JSON.stringify(res))
+                setLocalUser(res)
             })
             .catch(err => {
                 console.log(err.response.data)
             })
     }
 
+    const logout = () => {
+        window.localStorage.clear()
+        setLocalUser(null)
+    }
+
+
     if (localUser){
         return(
             <div>
                 <p>Logged in as: {localUser.name}</p>
+                <button onClick={logout}>logout</button>
             </div>
         )
     } else {
