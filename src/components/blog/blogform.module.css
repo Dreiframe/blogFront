@@ -1,0 +1,41 @@
+.BlogFormComponent{
+    border: 1px black solid;
+
+    display: grid;
+    column-count: 3;
+    grid-template-columns: 3;
+    grid-template-rows: 2;
+}
+
+.FormButton{
+    border: 1px black solid;
+
+    grid-column-start: 1;
+    grid-column-end: 4;
+
+    height: 1cm;
+}
+
+.AuthorColumn{
+    border: 1px black solid;
+
+    text-align: center;
+}
+
+.TitleColumn{
+    border: 1px black solid;
+
+    text-align: center;
+}
+
+.URLColumn{
+    border: 1px black solid;
+
+    text-align: center;
+}
+
+.BlogFormComponent input{
+    text-align: center;
+    margin-bottom: 0.5cm;
+    width: 80%;
+}

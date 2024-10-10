@@ -1,5 +1,6 @@
 import { useState } from 'react'
 import blogService, {UserType} from '../../services/blog'
+import styles from './blogform.module.css'
 
 interface BlogFormProps {
     blogs: UserType[],
@@ -33,8 +34,8 @@ export const BlogForm = ({blogs, setBlogs}: BlogFormProps) => {
 
     return(
         <div>
-            <form onSubmit={handleSubmit}>
-                <div>
+            <form onSubmit={handleSubmit} className={styles.BlogFormComponent}>
+                <div className={styles.TitleColumn}>
                     <p>Title</p>
                     <input
                         type="text"
@@ -43,7 +44,7 @@ export const BlogForm = ({blogs, setBlogs}: BlogFormProps) => {
                         onChange={({target}) => setTitle(target.value)}
                     />
                 </div>
-                <div>
+                <div className={styles.AuthorColumn}>
                     <p>Author</p>
                     <input
                         type="text"
@@ -52,7 +53,7 @@ export const BlogForm = ({blogs, setBlogs}: BlogFormProps) => {
                         onChange={({target}) => setAuthor(target.value)}
                     />
                 </div>
-                <div>
+                <div className={styles.URLColumn}>
                     <p>url</p>
                     <input
                         type="text"
@@ -61,7 +62,9 @@ export const BlogForm = ({blogs, setBlogs}: BlogFormProps) => {
                         onChange={({target}) => setUrl(target.value)}
                     />
                 </div>
-                <button type="submit">Create</button>
+                <button type="submit" className={styles.FormButton}>
+                    Create
+                </button>
             </form>
         </div>
     )

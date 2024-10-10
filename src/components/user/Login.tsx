@@ -1,6 +1,7 @@
 import { useState, useEffect } from "react"
 import loginService from '../../services/login'
 import blogService from '../../services/blog'
+import styles from './login.module.css'
 
 
 export const Login = () => {
@@ -50,7 +51,7 @@ export const Login = () => {
 
     if (localUser){
         return(
-            <div>
+            <div className={styles.LoginForm}>
                 <p>Logged in as: {localUser.name}</p>
                 <button onClick={logout}>logout</button>
             </div>
@@ -58,7 +59,7 @@ export const Login = () => {
     } else {
         return(
             <div>
-                <form onSubmit={handleLogin}>
+                <form onSubmit={handleLogin} className={styles.LoginForm}>
                     <div>
                         <input
                             type="text"
