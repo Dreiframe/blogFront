@@ -10,26 +10,35 @@ export const BlogComponent = () => {
   useEffect(() => {
     blogService.getAll().then(result => {
       setBlogs(result)
-    })
+    }).catch((error)=>{console.log('Blog useEffect(error:) ', error.response)})
   }, [])
 
-  const likeFunc = () => {
-    console.log('liked')
+  const likeFunc = (blog: BlogType) => {
+    blogService
+      .likeBlog(blog.blog_id)
+      .then(() => {
+        const updatedBlogs = blogs.map(({name, blogs}) => {
+          const filteredBlogs = blogs.map((blogFilter) => {
+            if (blogFilter.blog_id === blog.blog_id){
+              blogFilter.likes += 1
+            }
+
+            return blogFilter
+          })
+          return {name: name, blogs: filteredBlogs}
+        })
+
+        setBlogs(updatedBlogs)
+      })
+      .catch(err => {
+        console.log(err.response)
+      })
   }
   
   const deleteFunc = (blog: BlogType) => {
     blogService
       .deleteBlogById(blog.blog_id)
-      .then(result => {
-        //console.log('OLD_BLOGS: ', blogs)
-        //blog deletion works with propper name, pass but it does not update the page
-        /*
-        const updatedBlogs: UserType[] = blogs.map(({name, blogs}) => {
-          blogs.filter((blogFilter) => {
-            blogFilter.blog_id === blog.blog_id
-        })
-        })
-        */
+      .then(() => {
         const updatedBlogs = blogs.map(({name, blogs}) => {
           const filteredBlogs = blogs.filter((blogFilter) => {
             return blogFilter.blog_id !== blog.blog_id
@@ -40,7 +49,7 @@ export const BlogComponent = () => {
         setBlogs(updatedBlogs)
       })
       .catch(error => {
-        console.log(error.response.data)
+        console.log('Blog deleteFunc(error): ', error.response.data)
       })
   }
   
@@ -55,7 +64,7 @@ export const BlogComponent = () => {
       <li className={styles.Blog}>
         <div className={styles.UserColumn}>
           <p>{username}</p>
-          <p>, bid:{blog.blog_id}</p>
+          <p> bid:{blog.blog_id}</p>
         </div>
         <div className={styles.BlogColumn}>
           <p>Title: {blog.title}</p>
@@ -64,7 +73,7 @@ export const BlogComponent = () => {
           <p>Likes:{blog.likes}</p>
         </div>
         <div className={styles.ButtonColumn}>
-          <button onClick={likeFunc}>like</button>
+          <button onClick={() => likeFunc(blog)}>like</button>
           <button onClick={() => deleteFunc(blog)}>delete</button>
         </div>
       </li>

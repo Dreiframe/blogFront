@@ -16,7 +16,12 @@ export interface BlogType {
     url: string,
     user_id: number
 }
-  
+
+export interface postBlogType {
+    title: string,
+    author: string,
+    url: string
+}
 
 const setToken = (newToken: string )=> {
     token = `Bearer ${newToken}`
@@ -33,21 +38,32 @@ const deleteBlogById = async (id: number) => {
     const response = await axios.delete(`${baseUrl}/${id}`, {
         headers: {
             'Authorization': token
-          }
+        }
     })
 
     return response.data
 }
 
+const createBlog = async (newBlog: postBlogType) => {
+    const response = await axios.post(baseUrl, newBlog,{
+        headers: {
+            'Authorization': token
+        },
+    })
+
+    return response.data
+}
+
+const likeBlog = async (likeId: number) => {
+    const response = await axios.post(`${baseUrl}/like/${likeId}`)
+    return response.data
+}
+
 export default { 
-    getAll, deleteBlogById, setToken
+    getAll, deleteBlogById, setToken, createBlog, likeBlog
 }
 
 /*
-const create = newObject => {
-  return axios.post(baseUrl, newObject)
-}
-
 const update = (id, newObject) => {
   return axios.put(`${baseUrl}/${id}`, newObject)
 }

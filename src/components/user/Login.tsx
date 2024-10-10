@@ -36,7 +36,6 @@ export const Login = () => {
                 window.localStorage.setItem('blogUser', JSON.stringify(res))
                 blogService.setToken(res.token)
                 setLocalUser(res)
-                console.log('TESTING1: ', res.token)
             })
             .catch(err => {
                 console.log(err.response.data)
