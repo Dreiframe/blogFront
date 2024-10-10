@@ -1,12 +1,13 @@
-import { useEffect, useState } from 'react'
+import { useEffect } from 'react'
 import blogService, { BlogType, UserType } from '../../services/blog'
 import styles from './blog.module.css'
 
-
 //#######################Main Blog Component##########################
-export const BlogComponent = () => {
-  const [blogs, setBlogs] = useState<UserType[]>([])
-
+interface BlogComponentProps {
+  blogs: UserType[],
+  setBlogs: React.Dispatch<React.SetStateAction<UserType[]>>
+}
+export const BlogComponent = ({blogs, setBlogs}: BlogComponentProps) => {
   useEffect(() => {
     blogService.getAll().then(result => {
       setBlogs(result)

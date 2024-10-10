@@ -44,8 +44,12 @@ const deleteBlogById = async (id: number) => {
     return response.data
 }
 
-const createBlog = async (newBlog: postBlogType) => {
-    const response = await axios.post(baseUrl, newBlog,{
+interface createBlogReturnType {
+    name: string,
+    blog: BlogType
+}
+const createBlog = async (newBlog: postBlogType): Promise<createBlogReturnType> => {
+    const response = await axios.post<createBlogReturnType>(baseUrl, newBlog,{
         headers: {
             'Authorization': token
         },

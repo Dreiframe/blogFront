@@ -1,7 +1,11 @@
-import { useEffect, useState } from 'react'
-import blogService from '../../services/blog'
+import { useState } from 'react'
+import blogService, {UserType} from '../../services/blog'
 
-export const BlogForm = () => {
+interface BlogFormProps {
+    blogs: UserType[],
+    setBlogs: React.Dispatch<React.SetStateAction<UserType[]>>
+}
+export const BlogForm = ({blogs, setBlogs}: BlogFormProps) => {
     const [title, setTitle] = useState('create_test')
     const [author, setAuthor] = useState('creatov')
     const [url, setUrl] = useState('create_test.com')
@@ -12,11 +16,16 @@ export const BlogForm = () => {
         blogService
             .createBlog({title: title, author: author, url:url})
             .then(res => {
-                console.log('BlogForm: ', res);
-                console.log('BLOGS: cannot be updated because the state is in different file...TODO')
+                const updatedBlogs = blogs.map(({name, blogs}) => {
+                    if(name === res.name){
+                        blogs.push(res.blog)
+                    }
+                    return {name: name, blogs: blogs}
+                  })
+          
+                setBlogs(updatedBlogs)
             })
             .catch(error => {
-                //console.log('bad: ', error.response.data);  
                 console.log('BlogForm(error): ', error.response.data);
                 
             })
