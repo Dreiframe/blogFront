@@ -68,10 +68,14 @@ export const BlogComponent = ({blogs, setBlogs}: BlogComponentProps) => {
           <p> bid:{blog.blog_id}</p>
         </div>
         <div className={styles.BlogColumn}>
-          <p>Title: {blog.title}</p>
-          <p>Author: {blog.author}</p>
-          <p>Url: {blog.url}</p>
-          <p>Likes:{blog.likes}</p>
+          <p>Title: </p>
+          <p>{blog.title}</p>
+          <p>Author: </p>
+          <p>{blog.author}</p>
+          <p>Url: </p>
+          <a href=''>{blog.url}</a>
+          <p>Likes:</p>
+          <p>{blog.likes}</p>
         </div>
         <div className={styles.ButtonColumn}>
           <button onClick={() => likeFunc(blog)}>like</button>
@@ -80,6 +84,16 @@ export const BlogComponent = ({blogs, setBlogs}: BlogComponentProps) => {
       </li>
     )
   }
+
+  /*
+<div className={styles.BlogColumn}>
+          <p>Title: {blog.title}</p>
+          <p>Author: {blog.author}</p>
+          <p>Url: {blog.url}</p>
+          <p>Likes:{blog.likes}</p>
+        </div>
+        <div classN
+  */
   
 
   //#######################Multiple Blogs#############################
