@@ -61,6 +61,7 @@ export const Login = () => {
             <div>
                 <form onSubmit={handleLogin} className={styles.LoginForm}>
                     <div>
+                        <p>Name</p>
                         <input
                             type="text"
                             value={username}
@@ -69,6 +70,7 @@ export const Login = () => {
                         />
                     </div>
                     <div>
+                        <p>Password</p>
                         <input
                             type="password"
                             value={password}

@@ -6,11 +6,16 @@ import { BlogForm } from './components/blog/BlogForm'
 
 import { UserType } from './services/blog'
 
+import { ToggleMain } from './components/practice/ToggleMain'
+
 function App() {
   const [blogs, setBlogs] = useState<UserType[]>([])
 
   return (
     <>
+      <h1>TEST:</h1>
+      <ToggleMain/>
+
       <h1>LOGIN:</h1>
       <Login/>
 
