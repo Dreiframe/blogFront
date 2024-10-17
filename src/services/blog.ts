@@ -27,7 +27,9 @@ const setToken = (newToken: string )=> {
     token = `Bearer ${newToken}`
 }
 
-const getAll = () => {
+const getAll = async () => {
+    //tests dont work with proxy + baseUrl...
+    //const request = axios.get<UserType[]>('http://localhost:3003/api/blogs')
     const request = axios.get<UserType[]>(baseUrl)
     return request.then(response => {
         return response.data

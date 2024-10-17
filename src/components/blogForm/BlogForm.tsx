@@ -28,7 +28,6 @@ export const BlogForm = ({blogs, setBlogs}: BlogFormProps) => {
             })
             .catch(error => {
                 console.log('BlogForm(error): ', error.response.data);
-                
             })
     }
 

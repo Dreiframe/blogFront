@@ -2,7 +2,7 @@ import { useState } from 'react'
 
 import { BlogComponent } from './components/blog/Blog'
 import { Login } from './components/user/Login'
-import { BlogForm } from './components/blog/BlogForm'
+import { BlogForm } from './components/blogForm/BlogForm'
 
 import { UserType } from './services/blog'
 

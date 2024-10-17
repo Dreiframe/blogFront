@@ -9,9 +9,14 @@ interface BlogComponentProps {
 }
 export const BlogComponent = ({blogs, setBlogs}: BlogComponentProps) => {
   useEffect(() => {
-    blogService.getAll().then(result => {
-      setBlogs(result)
-    }).catch((error)=>{console.log('Blog useEffect(error:) ', error.response)})
+    blogService
+      .getAll()
+      .then(result => {
+        setBlogs(result)
+      })
+      .catch((error)=>{
+        console.log('Blog useEffect(error:) ', error.code)
+      })
   }, [])
 
   const likeFunc = (blog: BlogType) => {
