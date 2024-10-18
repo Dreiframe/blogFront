@@ -4,8 +4,6 @@ import { BlogComponent } from './components/blog/Blog'
 import { Login } from './components/user/Login'
 import { BlogForm } from './components/blogForm/BlogForm'
 
-import { UserType } from './services/blog'
-
 import { ToggleMain } from './components/practice/ToggleMain'
 
 function App() {

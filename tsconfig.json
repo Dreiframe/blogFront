@@ -6,5 +6,10 @@
   ],
   "include": [
     "./jest-setup.ts"
-  ]
+  ],
+  "compilerOptions": {
+    "paths":{
+      "*": ["./types/*.d.ts"]
+    }
+  }
 }

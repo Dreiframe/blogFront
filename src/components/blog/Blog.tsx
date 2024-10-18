@@ -1,5 +1,5 @@
 import { useEffect } from 'react'
-import blogService, { BlogType, UserType } from '../../services/blog'
+import blogService from '../../services/blog'
 import styles from './blog.module.css'
 
 //#######################Main Blog Component##########################
@@ -89,17 +89,6 @@ export const BlogComponent = ({blogs, setBlogs}: BlogComponentProps) => {
       </li>
     )
   }
-
-  /*
-<div className={styles.BlogColumn}>
-          <p>Title: {blog.title}</p>
-          <p>Author: {blog.author}</p>
-          <p>Url: {blog.url}</p>
-          <p>Likes:{blog.likes}</p>
-        </div>
-        <div classN
-  */
-  
 
   //#######################Multiple Blogs#############################
   interface BlogsProps {

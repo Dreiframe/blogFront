@@ -1,5 +1,5 @@
 import { useState } from 'react'
-import blogService, {UserType} from '../../services/blog'
+import blogService from '../../services/blog'
 import styles from './blogform.module.css'
 
 interface BlogFormProps {

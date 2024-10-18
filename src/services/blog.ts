@@ -3,20 +3,6 @@ import axios from 'axios'
 const baseUrl = '/api/blogs'
 let token: string|null = null
 
-export interface UserType {
-    name: string,
-    blogs: BlogType[]
-}
-  
-export interface BlogType {
-    author: string,
-    blog_id: number,
-    likes: number,
-    title: string,
-    url: string,
-    user_id: number
-}
-
 export interface postBlogType {
     title: string,
     author: string,
