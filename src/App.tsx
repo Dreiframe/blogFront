@@ -5,14 +5,20 @@ import { Login } from './components/user/Login'
 import { BlogForm } from './components/blogForm/BlogForm'
 
 import { ToggleMain } from './components/practice/ToggleMain'
+import BlogList from './components/BlogList/BlogList'
 
 function App() {
   const [blogs, setBlogs] = useState<UserType[]>([])
 
-  return (
-    <>
+  /*
       <h1>TEST:</h1>
       <ToggleMain/>
+  */
+
+  return (
+    <>
+      <h1>TESTING:</h1>
+      <BlogList/>
 
       <h1>LOGIN:</h1>
       <Login/>

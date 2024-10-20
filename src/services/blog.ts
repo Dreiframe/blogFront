@@ -22,6 +22,13 @@ const getAll = async () => {
     })
 }
 
+const getAllUnnested = async () => {
+    const request = axios.get<SingleBlog[]>(baseUrl + '?nested=false')
+    return request.then(response => {
+        return response.data
+    })
+}
+
 const deleteBlogById = async (id: number) => {
     const response = await axios.delete(`${baseUrl}/${id}`, {
         headers: {
@@ -52,7 +59,7 @@ const likeBlog = async (likeId: number) => {
 }
 
 export default { 
-    getAll, deleteBlogById, setToken, createBlog, likeBlog
+    getAll, getAllUnnested, deleteBlogById, setToken, createBlog, likeBlog
 }
 
 /*

@@ -11,3 +11,13 @@ declare interface BlogType {
     url: string,
     user_id: number
 }
+
+declare interface SingleBlog {
+    user: string
+    author: string,
+    blog_id: number,
+    likes: number,
+    title: string,
+    url: string,
+    user_id: number
+}

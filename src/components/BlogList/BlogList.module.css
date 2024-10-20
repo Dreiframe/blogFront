@@ -1,0 +1,66 @@
+.BlogComponent {
+    border: 1px black solid;
+}
+
+.Blogs {
+    border: 1px black solid;
+
+    margin: 0;
+    padding: 0;
+    list-style-type: none;
+}
+
+.Blog {
+    border: 1px black solid;
+
+    margin-top: 5px;
+    margin-bottom: 5px;
+
+    display: grid;
+    column-count: 3;
+    grid-template-columns: 15% 65% 20%;
+}
+
+/*
+.UserColumn {
+    border: 1px black solid;
+    column-width: 20%;
+
+    text-align: center;
+
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+*/
+
+.UserColumn {
+    border: 1px black solid;
+    column-width: 20%;
+
+    text-align: center;
+
+    display: grid;
+    grid-template-rows: 2;
+}
+
+.BlogColumn {
+    border: 1px black solid;
+
+    display: grid;
+    grid-template-columns: 20% 80%;
+    grid-template-rows: 25% 25% 25% 25%;
+    
+    text-align: left;
+}
+
+.BlogColumn p{
+    margin: 0.1cm;
+}
+
+.ButtonColumn {
+    border: 1px black solid;
+
+    display: grid;
+    grid-template-rows: 50% 50%;
+}
