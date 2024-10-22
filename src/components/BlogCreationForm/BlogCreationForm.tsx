@@ -2,7 +2,8 @@ import { useDispatch } from "react-redux"
 import { useState } from "react"
 import styles from './BlogCreationForm.module.css'
 import blogService from '../../services/blog'
-import { addBlog } from "../../reducers/blogReducer"
+//import { addBlog } from "../../reducers/blogReducer"
+import { addBlog } from "../../reducers/blogSlice"
 
 const BlogCreationForm = () => {
     const dispatch = useDispatch()

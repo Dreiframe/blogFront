@@ -1,7 +1,8 @@
 import { useEffect } from "react"
 import { useDispatch, useSelector } from "react-redux"
 import blogServcie from '../../services/blog'
-import { deleteBlog, likeBlog, setBlogs } from "../../reducers/blogReducer"
+//import { deleteBlog, likeBlog, setBlogs } from "../../reducers/blogReducer"
+import { deleteBlog, likeBlog, setBlogs } from "../../reducers/blogSlice"
 import styles from './BlogList.module.css'
 
 const BlogList = () => {
