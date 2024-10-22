@@ -1,5 +1,7 @@
 .BlogComponent {
     border: 1px black solid;
+    margin: 0;
+    padding: 0;
 }
 
 .Blogs {
@@ -20,19 +22,6 @@
     column-count: 3;
     grid-template-columns: 15% 65% 20%;
 }
-
-/*
-.UserColumn {
-    border: 1px black solid;
-    column-width: 20%;
-
-    text-align: center;
-
-    display: flex;
-    justify-content: center;
-    align-items: center;
-}
-*/
 
 .UserColumn {
     border: 1px black solid;

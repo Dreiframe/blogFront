@@ -1,33 +1,24 @@
-import { useState } from 'react'
-
-import { BlogComponent } from './components/blog/Blog'
 import { Login } from './components/user/Login'
-import { BlogForm } from './components/blogForm/BlogForm'
 
-import { ToggleMain } from './components/practice/ToggleMain'
+import BlogCreationForm from './components/BlogCreationForm/BlogCreationForm'
 import BlogList from './components/BlogList/BlogList'
+//import { ToggleMain } from './components/practice/ToggleMain'
 
 function App() {
-  const [blogs, setBlogs] = useState<UserType[]>([])
-
   /*
       <h1>TEST:</h1>
       <ToggleMain/>
   */
-
   return (
     <>
-      <h1>TESTING:</h1>
-      <BlogList/>
-
       <h1>LOGIN:</h1>
       <Login/>
 
       <h1>CREATE:</h1>
-      <BlogForm blogs={blogs} setBlogs={setBlogs}/>
+      <BlogCreationForm/>
 
       <h1>BLOGS:</h1>
-      <BlogComponent blogs={blogs} setBlogs={setBlogs}/>
+      <BlogList/>
     </>
   )
 }

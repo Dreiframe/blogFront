@@ -68,4 +68,11 @@ export const deleteBlog = (id: number) => {
     }
 }
 
+export const addBlog = (blog: SingleBlog) => {
+    return {
+        type: "ADD_BLOG",
+        payload: blog
+    }
+}
+
 export default blogReducer

@@ -4,8 +4,6 @@ import userEvent from '@testing-library/user-event'
 
 import { useState } from 'react'
 
-import { UserType } from '../../services/blog'
-
 import { BlogComponent } from './Blog'
 import styles from './blog.module.css'
 
@@ -38,6 +36,7 @@ describe('<BlogComponent/> Tests', () => {
     }
 
 
+    /*
     const WrapperMock = () => {
         //BlogComponent => useEffect => blogService => getAll => baseUrl => vite.ts proxy failure in test mode...
         console.log('######BlogComponent throws an error because of useEffect connection error..######')
@@ -45,6 +44,7 @@ describe('<BlogComponent/> Tests', () => {
         const mockHandler = vi.fn(() => {console.log('mock called. Wrapper2')})
         return <BlogComponent blogs={initalBlogs} setBlogs={mockHandler}/>
     }
+    */
 
 
     test('renders content', () => {

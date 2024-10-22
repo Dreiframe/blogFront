@@ -66,7 +66,7 @@ const BlogList = () => {
     
     return (
         <div>
-            <ol>
+            <ol className={styles.BlogComponent}>
             {blogs.map((blog, key) => {
                 return <BlogElement blog={blog} key={key}/>
             })}

@@ -1,5 +1,5 @@
 import { useEffect } from 'react'
-import blogService from '../../services/blog'
+import blogService from '../../../services/blog'
 import styles from './blog.module.css'
 
 //#######################Main Blog Component##########################
