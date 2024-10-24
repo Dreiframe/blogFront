@@ -1,15 +1,16 @@
-import { useEffect } from "react"
+// import { useEffect } from "react"
 import { useDispatch, useSelector } from "react-redux"
 import blogServcie from '../../services/blog'
 //import { deleteBlog, likeBlog, setBlogs } from "../../reducers/blogReducer"
-import { deleteBlog, likeBlog, setBlogs } from "../../reducers/blogSlice"
+///import { deleteBlog, likeBlog, setBlogs } from "../../reducers/blogSlice"
+import { deleteBlog, likeBlog } from "../../reducers/blogSlice"
 import styles from './BlogList.module.css'
 
 const BlogList = () => {
     const blogs = useSelector((state: reducerType) => state.blogs)
     const dispatch = useDispatch()
 
-
+    /*
     useEffect(() => {
         blogServcie
             .getAllUnnested()
@@ -17,6 +18,7 @@ const BlogList = () => {
                 dispatch(setBlogs(resBlogs))
             })
     }, [])
+    */
 
 
     const blogLikeFunction = (id: number) => {

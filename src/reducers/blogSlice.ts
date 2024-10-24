@@ -1,4 +1,4 @@
-import { createSlice, PayloadAction } from '@reduxjs/toolkit'
+import { createSlice, Dispatch, PayloadAction } from '@reduxjs/toolkit'
 
 const initialBlogs: SingleBlog[] = [
     {
@@ -43,4 +43,14 @@ const blogSlice = createSlice({
 })
 
 export const {setBlogs, addBlog, likeBlog, deleteBlog} = blogSlice.actions
+
+import blogService from '../services/blog'
+
+export const initializeBlogs = () => {
+    return async (dispatch: Dispatch) => {
+        const blogs = await blogService.getAllUnnested()
+        dispatch(setBlogs(blogs))
+    }
+}
+
 export default blogSlice.reducer
